@@ -46,7 +46,7 @@ st.markdown(
     }
 
     .stButton {
-        background-color: #007bff; /* Primary color */
+        background-color: black; /* Primary color */
         color: #fff; /* White text */
         padding: 10px 24px;
         border: none;
@@ -90,15 +90,18 @@ st.markdown(
         margin-top: 2rem;
     }
 
-    .github-link a {
-        color: #007bff; /* Primary color */
-        text-decoration: none;
-        transition: color 0.3s ease; /* Smooth color transition */
-    }
+    /* Custom GitHub button styling */
+.github-btn-white-border {
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    border: 2px solid white; /* White border */
+}
 
-    .github-link a:hover {
-        color: #0056b3; /* Darker hover color */
-    }
+.github-btn-white-border:hover {
+    color: #0056b3; /* Darker hover color */
+    border-color: #0056b3; /* Darker border color on hover */
+}
+
     </style>
     """,
     unsafe_allow_html=True,
@@ -116,23 +119,27 @@ st.markdown(
 
 # Rule selector
 selected_rules = st.multiselect(
-    'Optimization rules:',
+    "Optimization rules:",
     list(RULE_MAPPING.keys()),
     default=list(RULE_MAPPING.keys()),
     key="rules_multiselect",
 )
 
-# Checkboxes and button
-cols = st.columns(3)
-remove_ctes = cols[0].checkbox("Remove CTEs", on_change=None, key="remove_ctes_checkbox")
-format_with_sqlfmt = cols[1].checkbox("Lint with sqlfmt", on_change=None, key="format_with_sqlfmt_checkbox")
-optimize_button = cols[2].button("Optimize SQL", key="optimize_button")
+# Checkboxes
+cols = st.columns(2)
+remove_ctes = cols[0].checkbox(
+    "Remove CTEs", on_change=None, key="remove_ctes_checkbox"
+)
+format_with_sqlfmt = cols[1].checkbox(
+    "Lint with sqlfmt", on_change=None, key="format_with_sqlfmt_checkbox"
+)
 
 # Initialize session state
 if "new_query" not in st.session_state:
     st.session_state.new_query = ""
 if "state" not in st.session_state:
     st.session_state.state = 0
+
 
 # Input editor
 def _generate_editor_widget(value: str, **kwargs) -> str:
@@ -147,13 +154,14 @@ def _generate_editor_widget(value: str, **kwargs) -> str:
         **kwargs,
     )
 
+
 left, right = st.columns(2)
 
 with left:
     sql_input = _generate_editor_widget(SAMPLE_QUERY, key="input_editor")
 
 # Optimize and lint query
-if optimize_button:
+if st.button("Optimize SQL", key="optimize_button"):
     try:
         rules = [RULE_MAPPING[rule] for rule in selected_rules]
         new_query = apply_optimizations(sql_input, rules, remove_ctes).sql(pretty=True)
@@ -162,8 +170,30 @@ if optimize_button:
         st.session_state.new_query = new_query
         st.session_state.state += 1
         st.success("SQL query optimized successfully!")
+
     except Exception as e:
         st.error(f"Error: {e}")
+
+# CSS for the button
+css = """
+<style>
+.stButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+"""
+
+# Add the HTML button for optimization with CSS
+st.markdown(css, unsafe_allow_html=True)
 
 # Output editor
 with right:
@@ -183,7 +213,7 @@ st.markdown(
 st.markdown(
     """
     <div class="github-link">
-        <a href="https://github.com/shubhusion/sql-optimizer-app-main" target="_blank">
+        <a href="https://github.com/shubhusion/sql-optimizer-app-main" target="_blank" class=".github-btn-white-border">
             <i class="fab fa-github"></i> View on GitHub
         </a>
     </div>
