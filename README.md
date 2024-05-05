@@ -2,10 +2,9 @@
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sql-optimizer.streamlit.app)
 [![GitHub license](https://img.shields.io/github/license/yourusername/yourrepository.svg)](https://github.com/shubhusion/sql-optimizer-app/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/yourrepository.svg)](https://github.com/yourusername/yourrepository/issues)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/yourrepository.svg)](https://github.com/yourusername/yourrepository/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/yourrepository.svg)](https://github.com/yourusername/yourrepository/network)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/yourusername/yourrepository.svg?style=social&style=flat-square)](https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20SQL%20Optimizer%20Streamlit%20App!%20%40yourtwitterhandle)
+[![GitHub issues](https://img.shields.io/github/issues/yourusername/yourrepository.svg)](https://github.com/shubhusion/sql-optimizer-app/issues)
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/yourrepository.svg)](https://github.com/shubhusion/sql-optimizer-app/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/yourusername/yourrepository.svg)](https://github.com/shubhusion/sql-optimizer-app/network)
 
 Welcome to the SQL Optimizer Streamlit App! This web application is designed to optimize and lint SQL queries effortlessly, leveraging the power of [sqlglot](https://github.com/tobymao/sqlglot) for optimization and [sqlfmt](http://sqlfmt.com) for linting.
 
