@@ -6,15 +6,23 @@
 [![GitHub stars](https://img.shields.io/github/stars/shubhusion/sql-optimizer-app.svg)](https://github.com/shubhusion/sql-optimizer-app/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/shubhusion/sql-optimizer-app.svg)](https://github.com/shubhusion/sql-optimizer-app/network)
 
-Welcome to the SQL Optimizer Streamlit App! This web application is designed to optimize and lint SQL queries effortlessly, leveraging the power of [sqlglot](https://github.com/tobymao/sqlglot) for optimization and [sqlfmt](http://sqlfmt.com) for linting.
+---
 
-## Features
+## Welcome to the SQL Optimizer Streamlit App! 🎉
+
+This web application is designed to optimize and lint SQL queries effortlessly, leveraging the power of [**sqlglot**](https://github.com/tobymao/sqlglot) for optimization and [**sqlfmt**](http://sqlfmt.com) for linting.
+
+---
+
+## 🚀 Features
 
 - **SQL Query Optimization:** Utilize various optimization rules from sqlglot to enhance the performance of your SQL queries.
 - **SQL Query Linting:** Ensure your SQL queries adhere to best practices and conventions with sqlfmt.
 - **Customizable Optimization Rules:** Tailor the optimization process according to your specific requirements.
 
-## Usage
+---
+
+## 🛠️ Usage
 
 1. **Enter your SQL Query:** Input your SQL query in the left editor panel.
 2. **Choose Optimization Rules:** Select the optimization rules you wish to apply from the available options.
@@ -22,7 +30,9 @@ Welcome to the SQL Optimizer Streamlit App! This web application is designed to 
 4. **Linting Options:** Opt to lint your query with sqlfmt for adherence to coding standards.
 5. **Optimize SQL:** Click the "Optimize SQL" button to see the optimized and linted SQL query in the right editor panel.
 
-## Examples
+---
+
+## 📋 Examples
 
 Here's a sample query to illustrate the application of optimization rules:
 
